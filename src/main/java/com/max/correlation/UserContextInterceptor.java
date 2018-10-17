@@ -15,15 +15,14 @@ public class UserContextInterceptor implements RequestInterceptor {
     @Override
     public void apply(RequestTemplate requestTemplate) {
 
-        if( LOG.isInfoEnabled() ) {
-            LOG.info("Intercepting {} with correlation-id: {} ",
+        if( LOG.isDebugEnabled() ) {
+            LOG.debug("Intercepting {} with correlation-id: {} ",
                     requestTemplate.url(),
                     UserContextHolder.getUserContext().getCorrelationId());
         }
 
         requestTemplate.header(UserContext.CORRELATION_ID_HEADER,
                 UserContextHolder.getUserContext().getCorrelationId());
-
 
     }
 
