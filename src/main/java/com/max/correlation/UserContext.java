@@ -2,11 +2,11 @@ package com.max.correlation;
 
 public final class UserContext {
 
-    public static final String CORRELATION_ID_HEADER = "Correlation-Id";
+    static final String CORRELATION_ID_HEADER = "correlation-id";
 
     private final String correlationId;
 
-    public UserContext(String correlationId) {
+    UserContext(String correlationId) {
         this.correlationId = correlationId;
     }
 
