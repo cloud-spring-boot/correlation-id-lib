@@ -21,7 +21,7 @@ public final class UserContextHolder {
 
     public static UserContext getUserContext() {
         if (CONTEXT_HOLDER.get() == null) {
-            CONTEXT_HOLDER.set(new UserContext("<undefined>"));
+            CONTEXT_HOLDER.set(new UserContext("<undefined>", "<undefined>"));
             MDC.put(CORRELATION_ID_MDC_KEY, "<undefined>");
         }
 

@@ -24,7 +24,12 @@ public class UserContextFilter implements Filter {
 
         HttpServletRequest httpReq = (HttpServletRequest) req;
 
-        final UserContext userContext = new UserContext(httpReq.getHeader(UserContext.CORRELATION_ID_HEADER));
+        final UserContext userContext =
+                new UserContext(
+                        httpReq.getHeader(UserContext.CORRELATION_ID_HEADER),
+                        httpReq.getHeader(UserContext.AUTHIORIZATION_HEADER)
+                );
+
         UserContextHolder.setUserContext(userContext);
 
         if (LOG.isDebugEnabled()) {
