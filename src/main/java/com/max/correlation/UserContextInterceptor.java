@@ -1,6 +1,5 @@
 package com.max.correlation;
 
-
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
 import org.slf4j.Logger;
@@ -21,13 +20,11 @@ public class UserContextInterceptor implements RequestInterceptor {
         if (LOG.isDebugEnabled()) {
             LOG.debug("Intercepting {} with correlation-id: {} and token: {}",
                     requestTemplate.url(),
-                    UserContextHolder.getUserContext().getCorrelationId(),
                     UserContextHolder.getUserContext().getAuthToken()
             );
         }
 
         requestTemplate.
-                header(UserContext.CORRELATION_ID_HEADER, UserContextHolder.getUserContext().getCorrelationId()).
                 header(UserContext.AUTHIORIZATION_HEADER, UserContextHolder.getUserContext().getAuthToken());
 
     }

@@ -29,15 +29,10 @@ public class UserContextFilter implements Filter {
 
         final UserContext userContext =
                 new UserContext(
-                        httpReq.getHeader(UserContext.CORRELATION_ID_HEADER),
                         httpReq.getHeader(UserContext.AUTHIORIZATION_HEADER)
                 );
 
         UserContextHolder.setUserContext(userContext);
-
-        if (LOG.isDebugEnabled()) {
-            LOG.debug("Request {} with Correlation-Id: {}", httpReq.getRequestURI(), userContext.getCorrelationId());
-        }
 
         chain.doFilter(req, resp);
     }
