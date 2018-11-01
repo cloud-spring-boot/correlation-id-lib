@@ -7,6 +7,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * Add Correlation-Id and Authorization headers to all outbound HTTP calls.
+ */
 @Component
 public class UserContextInterceptor implements RequestInterceptor {
 

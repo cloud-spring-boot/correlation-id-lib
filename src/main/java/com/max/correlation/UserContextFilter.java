@@ -13,6 +13,9 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 
+/**
+ * Get all incoming HTTP request and extracts Correlation-Id and Authorization headers information.
+ */
 @Component
 public class UserContextFilter implements Filter {
 
